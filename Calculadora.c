@@ -2,42 +2,45 @@
 // O objetivo é conseguir construir uma calculadora utilizando scanf() printf() e loop para as diferentes contas.
 
 #include <stdio.h>
+#include <conio.h>
 
-int main()
+int main(void)
 {
     //1-Adição, 2-Subtração, 3-Multiplicação, 4-Divisão
-    int 1, 2, 3, 4;
+    int operacao;
+    float valor1, valor2;
 
-    printf("Bem-vindo a Calculadora em C, as operações matemáticas utilizadas são:\n");
-    printf("1. Adição\n");
-    printf("2. Subtração\n");
-    printf("3. Multiplicação\n");
-    printf("4. Divisão\n");
+    printf("Bem-vindo a Calculadora em C, as operacoes matematicas utilizadas sao:\n");
+    printf("1 Adicao\n");
+    printf("2 Subtracao\n");
+    printf("3 Multiplicacao\n");
+    printf("4 Divisao\n");
     printf("\n");
-    printf("Qual Operação Matemática você quer fazer? \n");
+    printf("Qual Operacao Matematica voce quer fazer? \n");
 
     // Aqui é onde o usuário irá escolhe entre as 4 operações
-    scanf("%d", &1, &2, &3, &4);
+    scanf("%d", &operacao);
 
-    //Formulas
-    1 = +;
-    2 = -;
-    3 = *;
-    4 = /;
+    printf("Quais os valores da operacao?\n");
+    scanf("%f%f\n", &valor1, &valor2);
 
-    /* Números escolhidos para o calculo */
-    int numero1;
-    int numero2;
-    int resultado;
+    double resultado;
+    if(operacao == 1) {
 
-    /* Quais números farão a operação de soma */
-    printf("Qual os valores para a operação? \n");
-    scanf("%d%d\n", &numero1, &numero2);
+    resultado = valor1 + valor2;
+    printf("O resultado e %d", resultado);
 
-    resultado = numero1 + numero2;
+    } else if (operacao == 2)
+    resultado = valor1 - valor2;
+    printf("O resultado e %d", resultado);
 
-    printf("O valor da soma é: %d\n", resultado);
+    if (operacao == 3) {
+    resultado = valor1 * valor2;
+    printf("O resultado e %d", resultado);
 
+    } else if(operacao == 4)
+    resultado = valor1 / valor2;
+    printf("O resultado e %d", resultado);
     /* A ideia é continuar construindo as operações para formar a calculadora... */
 
     return 0;
