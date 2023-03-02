@@ -2,46 +2,52 @@
 // O objetivo é conseguir construir uma calculadora utilizando scanf() printf() e loop para as diferentes contas.
 
 #include <stdio.h>
-#include <conio.h>
 
 int main(void)
 {
-    //1-Adição, 2-Subtração, 3-Multiplicação, 4-Divisão
+    float valor1, valor2, resultado;
     int operacao;
-    float valor1, valor2;
 
-    printf("Bem-vindo a Calculadora em C, as operacoes matematicas utilizadas sao:\n");
-    printf("1 Adicao\n");
-    printf("2 Subtracao\n");
-    printf("3 Multiplicacao\n");
-    printf("4 Divisao\n");
-    printf("\n");
-    printf("Qual Operacao Matematica voce quer fazer? \n");
+    do
+    {
+        printf("Bem-vindo a calculadora em C!\n");
+        printf("Qual operacao voce gostaria de utilizar?\n");
+        printf("1. Adicao;\n");
+        printf("2. Subtracao;\n");
+        printf("3. Multiplicacao;\n");
+        printf("4. Divisao;\n");
+        printf("5. Porcentagem;\n");
+        printf("Escolha a operacao pelo numeral correspondente: ");
+        scanf("%i", &operacao);
+        printf("Otimo, agora vamos escolher os valores para a operacao!\n");
+        printf("Qual o primeiro valor? X: ");
+        scanf("%f", &valor1);
+        printf("Qual o segundo valor? Y: ");
+        scanf("%f", &valor2);
 
-    // Aqui é onde o usuário irá escolhe entre as 4 operações
-    scanf("%d", &operacao);
-
-    printf("Quais os valores da operacao?\n");
-    scanf("%f%f\n", &valor1, &valor2);
-
-    double resultado;
-    if(operacao == 1) {
-
-    resultado = valor1 + valor2;
-    printf("O resultado e %d", resultado);
-
-    } else if (operacao == 2)
-    resultado = valor1 - valor2;
-    printf("O resultado e %d", resultado);
-
-    if (operacao == 3) {
-    resultado = valor1 * valor2;
-    printf("O resultado e %d", resultado);
-
-    } else if(operacao == 4)
-    resultado = valor1 / valor2;
-    printf("O resultado e %d", resultado);
-    /* A ideia é continuar construindo as operações para formar a calculadora... */
-
-    return 0;
+        switch (operacao)
+        {
+        case 1:
+            resultado= valor1+valor2;
+            break;
+        case 2:
+            resultado= valor1-valor2;
+            break;
+        case 3:
+            resultado= valor1*valor2;
+            break;
+        case 4:
+            resultado= valor1/valor2;
+            break;
+        case 5:
+            resultado= (valor1/100)*valor2;
+            break;
+        default:
+            printf("\nPor favor, escolha uma das opcoes validas!\n");
+            break;
+        }
+        printf("Calculando... O resultado da operacao e: %0.2f", resultado);
+        printf("\nGostaria de continuar os calculos? Digite 1 para continuar ou 0 para encerrar. Obrigado! ");
+        scanf("%i", &operacao);
+    } while (operacao==1);
 }
