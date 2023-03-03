@@ -7,24 +7,35 @@ int main(void)
 {
     float valor1, valor2, resultado;
     int operacao;
+    int continuar;
 
     do
     {
     //Mensagem de boas vindas a calculadora como "menu" de entrada;
-        printf("Bem-vindo a calculadora em C!\n");
-        printf("Qual operacao voce gostaria de utilizar?\n");
-        printf("1. Adicao;\n");
-        printf("2. Subtracao;\n");
-        printf("3. Multiplicacao;\n");
-        printf("4. Divisao;\n");
-        printf("5. Porcentagem;\n");
-        printf("Escolha a operacao pelo numeral correspondente: ");
-        scanf("%i", &operacao);
-        printf("Otimo, agora vamos escolher os valores para a operacao!\n");
-        printf("Qual o primeiro valor? X: ");
-        scanf("%f", &valor1);
-        printf("Qual o segundo valor? Y: ");
-        scanf("%f", &valor2);
+            printf("Bem-vindo a calculadora em C!\n");
+            printf("Qual operacao voce gostaria de utilizar?\n");
+            printf("1. Adicao;\n");
+            printf("2. Subtracao;\n");
+            printf("3. Multiplicacao;\n");
+            printf("4. Divisao;\n");
+            printf("5. Porcentagem;\n");
+            printf("Escolha a operacao pelo numeral correspondente: ");
+            scanf("%i", &operacao);
+            printf("Otimo, agora vamos escolher os valores para a operacao!\n");
+
+        do
+        {
+            //Aqui coloquei a opção do usuário poder verificar se os valores escolhidos estão corretos,
+            //caso não esteja correto, a calculadora solicitará novos valores.
+            printf("Qual o primeiro valor? X: \n");
+            scanf("%f", &valor1);
+            printf("Qual o segundo valor? Y: \n");
+            scanf("%f", &valor2);
+        
+            printf("Os valores escolhidos sao X=%0.2f e Y=%0.2f ? Se estiver correto, digite 1 para continuar: \n", valor1, valor2);
+            scanf("%i", &continuar );
+        } while (continuar==0);
+        
 
         //switch e case são utilizados para as opções, inicialmente tentei com if e else, porém não consegui um bom resultado.
         switch (operacao)
@@ -51,7 +62,7 @@ int main(void)
             break;
         }
         //O resultado foi colocado como 0.2 para que exista sempre 2 casas no resultado, assim, evitando números quebrados gigantes.
-        printf("Calculando... O resultado da operacao e: %0.2f", resultado);
+        printf("\nCalculando... O resultado da operacao e: %0.2f", resultado);
         printf("\nGostaria de continuar os calculos? Digite 1 para continuar ou 0 para encerrar. Obrigado! ");
         scanf("%i", &operacao);
         //"while" é utilizado como laço de repetição, qualquer número diferente de 1 irá encerrar a calculadora.
