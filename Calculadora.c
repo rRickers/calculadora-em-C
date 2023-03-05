@@ -78,4 +78,5 @@ int main(void)
         //"while" é utilizado como laço de repetição, qualquer número diferente de 1 irá encerrar a calculadora.
     } while (operacao==1);
     printf("\nObrigado por usar nossos servicos, tenha um otimo dia %s.\n\n", usuario);
+    //Finalização do projeto, entrega dentro do prazo, tudo revisado;
 }
